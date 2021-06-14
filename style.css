@@ -8,7 +8,7 @@ h1 {
 }
 
 input {
-  display: block;
+  display: rounded;
   width: 150px;
   margin: auto;
 }
@@ -19,5 +19,13 @@ table {
 
 p {
   border: 0px;
-  padding: 5px;
+  padding: 2px;
+}
+
+div.p30 {
+  padding: 30px;
+}
+
+span.highlight {
+  background-color: yellow;
 }
