@@ -26,10 +26,14 @@ function compute() {
       yearsValue = document.getElementById("years").value;
 
   if(principalValue && rateValue && yearsValue ) {
-    let finalResult = calcuateInterest(principalValue, rateValue, yearsValue),
-        finalYear = calcuateFinalYear(yearsValue),
-        resultPane = composeResultPane(principalValue, rateValue, finalResult, finalYear)
-    document.getElementById("result").innerHTML=resultPane;
+    if(principalValue <= 0) {
+      alert("Please, enter a valid number greather than 0!");
+    } else {
+      let finalResult = calcuateInterest(principalValue, rateValue, yearsValue),
+          finalYear = calcuateFinalYear(yearsValue),
+          resultPane = composeResultPane(principalValue, rateValue, finalResult, finalYear)
+      document.getElementById("result").innerHTML=resultPane;
+    }
   }
 }
   
