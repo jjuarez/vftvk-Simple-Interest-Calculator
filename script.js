@@ -10,7 +10,7 @@ function calcuateInterest(principal, rate, years) {
       rateFloat    = parseFloat(rate),
       yearsInt     = parseInt(years);
 
-  return(principalInt + (principalInt * rateFloat * yearsInt) / 100);
+  return((principalInt * rateFloat * yearsInt) / 100);
 }
 
 function composeResultPane(principal, rate, result, finalYear) {
