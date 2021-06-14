@@ -9,7 +9,7 @@
     <table>
       <tr>
         <td colspam="2">Amount</td>
-        <td><input type="number" id="principal"></td>
+        <td><input type="number" min="1" id="principal"></td>
       </tr>
       <tr>
         <td>Interest Rate</td>
@@ -17,7 +17,15 @@
         <td><output id="ratevalue"/></td>
       <tr>
         <td clospam="2">No. of Years</td>
-        <td><input type="number" name="years" min="1" max="20" step="1" value="5" id="years"</td>
+        <td><input type="number" name="years" min="1" max="20" list="defaultYears" id="years"/>
+        <datalist id="defaultYears">
+          <option value="1">
+          <option value="5">
+          <option value="10">
+          <option value="15">
+          <option value="20">
+        </datalist>
+        </td>
       </tr>
       <tr>
         <td colspam="3"><input type="submit" value="Compute Interest" onclick="compute()"></td>
