@@ -16,34 +16,66 @@ function calcuateInterest(principal, rate, years) {
 function composeResultPane(principal, rate, result, finalYear) {
   let resultPane = new String;
  
-  resultPane='<p>If you deposit <span class="highlight">' + principal + '</span><br/>' +
-             'at an interest rate of <span class="highlight">' + rate + '%</span><br/>' +
-             'You will receive an amount of <span class="highlight">' + result + '</span><br/>' + 
-             'in the year <span class="highlight">' + finalYear + '</span></p>';
-  return(resultPane);
+  return `<p>If you deposit <span class="highlight">${principal}</span><br/>
+             at an interest rate of <span class="highlight">${rate} %</span><br/>
+             You will receive an amount of <span class="highlight">${result}</span><br/>
+             in the year <span class="highlight">${finalYear}</span>
+          </p>`;
+}
+
+
+function validatePrincipal(principal) {
+  if(!principal || principal <= 0) {
+    return false;
+  }
+
+  return true;
+}
+
+
+function validateRate(rate) {
+  if(!rate || rate <=0) {
+    return false;
+  }
+
+  return true;
+}
+
+function validateYears(years) {
+  if(!years || years <=0) {
+    return false;
+  }
+
+  return true;
 }
 
 function compute() {
-  let principalValue = document.getElementById("principal").value,
-      rateValue = document.getElementById("rate").value,
-      yearsValue = document.getElementById("years").value;
+  let principal = document.getElementById("principal").value,
+      rate      = document.getElementById("rate").value,
+      years     = document.getElementById("years").value;
 
-  if(!principalValue) {
+  if(!validatePrincipal(principal)) {
     alert("Please, enter a valid number greather than 0!");
     document.getElementById("principal").focus();
+    return
   }
 
-  if(rateValue && yearsValue ) {
-    if(principalValue <= 0) {
-      alert("Please, enter a valid number greather than 0!");
-      document.getElementById("principal").focus();      
-    } else {
-      let finalResult = calcuateInterest(principalValue, rateValue, yearsValue),
-          finalYear = calcuateFinalYear(yearsValue),
-          resultPane = composeResultPane(principalValue, rateValue, finalResult, finalYear)
-      document.getElementById("result").innerHTML=resultPane;
-    }
+  if(!validateRate(rate)) {
+    alert("Please, enter a valid rate number");
+    document.getElementById("rate").focus();
+    return
   }
+
+  if(!validateYears(years)) {
+    alert("Please, enter a valid number of years");
+    document.getElementById("years").focus();
+    return
+  }
+
+  let finalResult = calcuateInterest(principal, rate, years),
+      finalYear   = calcuateFinalYear(years),
+      resultPane  = composeResultPane(principal, rate, finalResult, finalYear)
+  document.getElementById("result").innerHTML=resultPane;
 }
   
 function showRate() {
