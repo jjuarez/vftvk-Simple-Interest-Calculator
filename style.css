@@ -8,18 +8,19 @@ h1 {
 }
 
 input {
-  display: rounded;
+  border-radius: 5px;
   width: 150px;
+  margin: auto;
+}
+
+input.button {
+  border-radius: 10px;
+  width: 200px;
   margin: auto;
 }
 
 table {
   border: 0px;
-}
-
-p {
-  border: 0px;
-  padding: 2px;
 }
 
 div.p30 {
